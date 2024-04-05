@@ -544,6 +544,7 @@ $allreq_person = $del_type->rowCount();
             <i class='bx bx-receipt'></i>
             <h3>All Created Deliveries</h3>
             <i class='bx bx-filter'></i>
+            <a href="./userAllDetails.php" style="padding: 10px 20px; background:#1976D2;color: #fff;text-decoration: none;text-transform: uppercase;border-radius: 5px;">All Details</a>
             <input type="text" id="searchInput" style="padding: 8px 15px;font-size:16px" placeholder="Search...">
         </div>
         <table id="deliveryTable">
