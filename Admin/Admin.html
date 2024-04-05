@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>East Link Engineering</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <div class="logo-name"><span>East - </span>Link</div>
+        </a>
+        <ul class="side-menu">
+            <li class="active" id="dsh"><a href="#" onclick="displayash()"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li class="" id="fr"><a href="#" onclick="displyforms()"><i class='bx bx-store-alt'></i>Create User</a></li>
+            <li class=""><a href="#"><i class='bx bx-analyse'></i>All Deliveries</a></li>
+            <li class=""><a href="#"><i class='bx bx-analyse'></i>All Users</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content" >
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <!-- <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a> -->
+            
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main id="dashbord">
+            <div class="header">
+                <div class="left">
+                    <h1>Admin Dashbord</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                Analytics
+                            </a></li>
+                        /
+                        <li><a href="#" class="active">Shop</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <!-- Insights -->
+            <ul class="insights">
+                <li>
+                    <i class='bx bx-calendar-check'></i>
+                    <span class="info">
+                        <h3>
+                            1,074
+                        </h3>
+                        <p>Paid Order</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-show-alt'></i>
+                    <span class="info">
+                        <h3>
+                            3,944
+                        </h3>
+                        <p>Site Visit</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-line-chart'></i>
+                    <span class="info">
+                        <h3>
+                            14,721
+                        </h3>
+                        <p>Searches</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-dollar-circle'></i>
+                    <span class="info">
+                        <h3>
+                            $6,742
+                        </h3>
+                        <p>Total Sales</p>
+                    </span>
+                </li>
+            </ul>
+            <!-- End of Insights -->
+
+            <div class="bottom-data">
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-receipt'></i>
+                        <h3>Recent Deliveys</h3>
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>DN</th>
+                                <th>Customer Name</th>
+                                <th>Contact Number</th>
+                                <th>Created Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>14-08-2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>14-08-2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>14-08-2023</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+            </div>
+
+                
+
+                <!-- End of Reminders-->
+
+            </div>
+
+        </main>
+
+        <!--form for insert data-->
+
+        <main id="forms"> 
+            <div class="container">
+                <header>Registration</header>
+
+                <form action="../Google Chrome.lnk">
+                    <div class="form first">
+                        <div class="details personal">
+                            <span class="title">Primary Details</span>
+                            <br><br>
+                            <div class="feilds">
+                                <div class="input-feilds">
+                                    <label>Name</label>
+                                    <input type="text" name="#" id="#" >
+                                </div>
+                                <div class="input-feilds">
+                                    <label>Email</label>
+                                    <input type="text" name="#" id="#" >
+                                </div>
+                                <div class="input-feilds">
+                                    <label>Password</label>
+                                    <input type="text" name="#" id="#">
+                                </div>
+                                <div class="input-feilds">
+                                    <label>Admin Access</label>
+                                    <select name="vehicle_type">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="btns">
+                                <button type="submit" class="nxtBtn submits">
+                                    <span class="btnText" ></span>Create User</span>
+                                </button>
+                                <button class="nxtBtn cancel" >
+                                    <span class="btnText" >Cancel</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+    </div>
+
+    <!---->
+    <script>
+        function displyforms(){
+            document.getElementById("forms").style.display = "block";
+            document.getElementById("dashbord").style.display = "none";
+            document.querySelectorAll("dsh").classList.remove = "active";
+            document.querySelectorAll("fr").classList.add = "active";
+        }
+
+        function displayash(){
+            document.getElementById("forms").style.display = "none";
+            document.getElementById("dashbord").style.display = "block";
+            document.querySelectorAll("dsh").classList.add = "active";
+            document.querySelectorAll("fr").classList.remove = "active";
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
