@@ -88,6 +88,13 @@ if(isset($_SESSION['RemindDelete']) && $_SESSION['RemindDelete'] == true) {
     $RemindDelete = false;
 }
 
+if(isset($_SESSION['Deletedeliery']) && $_SESSION['Deletedeliery'] == true) {
+    $Deletedeliery = true;
+} else {
+    $Deletedeliery = false;
+}
+
+
 date_default_timezone_set('Asia/Colombo');
 
 $ar_created_date = date("Y-m-d");
@@ -1463,6 +1470,21 @@ $allreq_person = $del_type->rowCount();
 
                 $_SESSION['remind_delete'] == null;
                 $_SESSION['RemindDelete'] = true; // Set the flag to true
+
+            }else if($_SESSION['Delete_deliery'] ==1  && !$Deletedeliery) {
+                echo '
+                <script>
+                Swal.fire({
+                    title: "Delivery Deleted!",
+                    text: "Delivery Sucessfully Deleted!",
+                    icon: "success"
+                  });
+                  </script>
+                '
+                ;
+
+                $_SESSION['Delete_deliery'] == null;
+                $_SESSION['Deletedeliery'] = true; // Set the flag to true
 
             }
         ?>

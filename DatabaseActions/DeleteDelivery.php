@@ -16,8 +16,8 @@ if (isset($_POST['ddelete'])) {
     $delete_smtp -> execute();
 
         echo "Data inserted successfully.";
-            $_SESSION['user_deleted'] = 1;
-            $_SESSION['dataDeleted'] = false;
+            $_SESSION['Delete_deliery'] = 1;
+            $_SESSION['Deletedeliery'] = false;
             header("Location: ../UserPages/UserPage.php");
     
 }
