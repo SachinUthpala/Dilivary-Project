@@ -872,7 +872,9 @@ body{
 }
 
 .popup-form .form .form-element input[type="text"],
-.popup-form .form .form-element input[type="color"]{
+.popup-form .form .form-element input[type="color"],
+.popup-form .form .form-element input[type="date"]
+{
     margin-top: 5px;
     display: block;
     width: 100%;
@@ -992,7 +994,9 @@ body{
 }
 
 .popup-form2 .form .form-element input[type="text"],
-.popup-form2 .form .form-element input[type="color"]{
+.popup-form2 .form .form-element input[type="color"],
+.popup-form .form .form-element input[type="date"]
+{
     margin-top: 5px;
     display: block;
     width: 100%;

@@ -255,7 +255,7 @@ $allreq_person = $del_type->rowCount();
             <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displayAllusers()"><i class='bx bxs-user-detail'></i>All Users</a></li>
             <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displayAddReqPerosn()"><i class='bx bx-male-female' ></i>Add Requested Per..</a></li>
             <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="createDeliveryType()"><i class='bx bxl-docker' ></i>Add Delivery Type</a></li>
-            <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displaycreatealert()"><i class='bx bxl-docker' ></i>Create Alert</a></li>
+           
             <br><br>
             <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displayAllPending()"><i class='bx bxs-time-five' ></i>Pending Orders</a></li>
             <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displayAllCanceled()"><i class='bx bxs-bug'></i>Canceled Orders</a></li>
@@ -1273,6 +1273,52 @@ $allreq_person = $del_type->rowCount();
 <!--alerts create -->
 
         <main id="alerts"> 
+        
+        <!-- Insights -->
+        <ul class="insights">
+                <li>
+                    <i class='bx bx-calendar-check'></i>
+                    <span class="info">
+                        <h3>
+                            <?php echo $user_name; ?>
+                        </h3>
+                        <p>Logged In As</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-line-chart'></i>
+                    <span class="info">
+                        <h3>
+                            <?php echo $mail; ?>
+                        </h3>
+                        <p>My Mail</p>
+                    </span>
+            </li>
+        </ul>
+        <!-- End of Insights -->
+
+        <!-- Insights -->
+        <ul class="insights">
+                <li>
+                    <i class='bx bx-calendar-check'></i>
+                    <span class="info">
+                        <h3>
+                            <?php echo $user_name; ?>
+                        </h3>
+                        <p>Total Created Notifications</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-line-chart'></i>
+                    <span class="info">
+                        <h3>
+                            <?php echo $mail; ?>
+                        </h3>
+                        <p>Today Created Notifications</p>
+                    </span>
+            </li>
+        </ul>
+
+
+
         <div class="bottom-data">
                 <div class="reminders">
                     <div class="header">
@@ -1309,7 +1355,10 @@ $allreq_person = $del_type->rowCount();
                         <h2>Create Notification</h2>
                         <form action="../DatabaseActions/Reminder.php" method="post">
                             <input type="hidden" name="n_created_user" value="<?php echo $_SESSION['user']; ?>">
-                            <input type="date" name="n_created_date" value="<?php echo date("Y-m-d"); ?>">
+                            <div class="form-element">
+                                <label for="notification">Expected Date</label>
+                                <input type="date" name="n_created_date" value="<?php echo date("Y-m-d"); ?>">
+                            </div>
                             <div class="form-element">
                                 <label for="notification">Your Notification</label>
                                 <input type="text" name="notification" id="notification">

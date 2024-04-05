@@ -1,0 +1,12 @@
+
+extra 
+
+            <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displayDelivered()"><i class='bx bxs-bell' ></i>Delivered Orders</a></li>
+
+
+
+
+
+
+
+            <li class="" id="all_user" <?php if($admin_Access == 1) {echo "style='display:block'";}else{echo "style='display:none'";}  ?> ><a href="#" onclick="displaycreatealert()"><i class='bx bxl-docker' ></i>Create Alert</a></li>
