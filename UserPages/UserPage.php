@@ -465,27 +465,27 @@ $allreq_person = $del_type->rowCount();
                                 </div>
                                 <div class="input-feilds">
                                     <label>DN Refference</label>
-                                    <input type="text" name="dn" id="#">
+                                    <input type="text" name="dn" id="#" required>
                                 </div>
                                 <div class="input-feilds">
                                     <label>Customer Name</label>
-                                    <input type="text" name="customer_name" id="#">
+                                    <input type="text" name="customer_name" id="#" required>
                                 </div>
                                 <div class="input-feilds">
                                     <label>Delivery  Address</label>
-                                    <input type="text" name="delivery_address" id="#">
+                                    <input type="text" name="delivery_address" id="#" required>
                                 </div>
                                 <div class="input-feilds">
                                     <label>Contact Number</label>
-                                    <input type="text" name="contact_number" id="#">
+                                    <input type="text" name="contact_number" id="#" required>
                                 </div>
                                 <div class="input-feilds">
                                     <label>Contact Person</label>
-                                    <input type="text" name="contaced_peson" id="#">
+                                    <input type="text" name="contaced_peson" id="#" required>
                                 </div>
                                 <div class="input-feilds">
                                     <label>Type of Delivery</label>
-                                    <select name="type_of_delivery">
+                                    <select name="type_of_delivery" required>
                                     <?php while($del_type_row = $del_type->fetch(PDO::FETCH_ASSOC)){ ?>
                                         <option value="<?php echo $del_type_row['dType'] ; ?>"><?php echo $del_type_row['dType'] ; ?></option>
                                         <?php } ?>
@@ -497,7 +497,7 @@ $allreq_person = $del_type->rowCount();
                                 </div>
                                 <div class="input-feilds">
                                     <label>Requested By</label>
-                                    <select name="requested_by">
+                                    <select name="requested_by" required>
                                     <?php while($all_REQ_rows = $req_person->fetch(PDO::FETCH_ASSOC)){ ?>
                                         <option value="<?php echo $all_REQ_rows['rName'] ; ?>"><?php echo $all_REQ_rows['rName'] ; ?></option>
                                         <?php } ?>
@@ -505,7 +505,7 @@ $allreq_person = $del_type->rowCount();
                                 </div>
                                 <div class="input-feilds">
                                     <label>Vehicle Type</label>
-                                    <select name="vehicle_type">
+                                    <select name="vehicle_type" required>
                                         <option value="Bike">Bike</option>
                                         <option value="Lorry">Lorry</option>
                                         <option value="Car">Car</option>
@@ -516,7 +516,7 @@ $allreq_person = $del_type->rowCount();
                                 </div>
                                 <div class="input-feilds">
                                     <label>Urgancy of deivery</label>
-                                    <select name="uragncy">
+                                    <select name="uragncy" required>
                                         <option value="Sheduled">Sheduled</option>
                                         <option value="Not Urgent">Not Urgent</option>
                                         <option value="Urgent">Urgent</option>
@@ -1278,17 +1278,9 @@ $allreq_person = $del_type->rowCount();
                     <div class="header">
                         <i class='bx bxs-bell-ring' ></i>
                         <h3>Notification Center</h3>
-                        <i class='bx bx-plus' id="show-form"></i>
+                        <i class='bx bx-plus' id="show-form2"></i>
                     </div>
                     <ul class="task-list">
-                        <li class="completed">
-                            <div class="task-title">
-                                <i class='bx bx-check-circle'></i>
-                                <p>Start Our Meeting</p>
-                            </div>
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </li>
-
                         <li class="completed">
                             <div class="task-title">
                                 <i class='bx bx-check-circle'></i>
@@ -1308,10 +1300,10 @@ $allreq_person = $del_type->rowCount();
                 </div>
 
             </div>
-            </main>
+        </main>
 
             <!--add notification form-->
-            <div class="popup-form2">
+           <div class="popup-form2" style="position: absolute; margin-top: 50px; z-index: 1000;">
                     <div class="close-btn" id="close-form2">&times;</div>
                     <div class="form">
                         <h2>Create Notification</h2>
@@ -1334,7 +1326,7 @@ $allreq_person = $del_type->rowCount();
                             </div>
                         </form>
                     </div>
-                </div>
+            </div> 
 
 
                 <!--script for form-->
