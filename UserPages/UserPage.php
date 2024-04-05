@@ -847,9 +847,9 @@ $allreq_person = $del_type->rowCount();
                                 <span style="<?php if($all_del_rows['ar_delivery_person'] != null ){echo "display:block;" ;} else {echo "display:none;" ;}?>"> <?php echo "Mr. ".$all_del_rows['ar_delivery_person']; ?>  </span>
                             </td>
                             <td>
-                                <form action="#">
-                                    <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
-                                    <button type="submit" name="perdon" class="submitteds" style="background:#D32F2F;color:#fff;font-size:12px;border:none;cursor:pointer;padding:2px 5px;border-radius:5px">Update</button>
+                                <form action="../DatabaseActions/DeleteDelivery.php" method="post">
+                                    <input type="hidden" name="d_id" value="<?php echo $all_del_rows['ar_id']; ?>">
+                                    <button type="submit" name="ddelete" class="submitteds" style="background:#D32F2F;color:#fff;font-size:14px;border:none;cursor:pointer;padding:4px 10px;border-radius:5px">Delete</button>
                                 </form>
                             </td>
                         </tr>   
