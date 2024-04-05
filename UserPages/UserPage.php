@@ -319,7 +319,7 @@ $allreq_person = $del_type->rowCount();
                         <h3>
                             <?php echo $user_name; ?>
                         </h3>
-                        <p>Loged In As</p>
+                        <p>Logged In As</p>
                     </span>
                 </li>
                 <li><i class='bx bx-show-alt'></i>
@@ -327,7 +327,7 @@ $allreq_person = $del_type->rowCount();
                         <h3>
                             <?php echo $delivayRow; ?>
                         </h3>
-                        <p>Total Created Dilivay Arrangements</p>
+                        <p>Total Created Delivery Arrangements</p>
                     </span>
                 </li>
                 <li><i class='bx bx-line-chart'></i>
