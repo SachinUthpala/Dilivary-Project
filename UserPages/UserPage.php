@@ -787,6 +787,7 @@ $allreq_person = $del_type->rowCount();
                 <thead>
                     <tr>
                         <th>DN</th>
+                        <th>Customer</th>
                         <th>Created By</th>
                         <th>Created Time</th>
                         <th>Status</th>
@@ -800,6 +801,7 @@ $allreq_person = $del_type->rowCount();
                     <?php while($all_del_rows = $all_delivery_smtp->fetch(PDO::FETCH_ASSOC)){ ?>
                         <tr>
                             <td><?php echo $all_del_rows['ar_dn_ref']; ?></td>
+                            <td><?php echo $all_del_rows['ar_customer_name']; ?></td>
                             <td><?php echo $all_del_rows['ar_created_by']; ?></td>
                             <td><?php echo $all_del_rows['ar_created_time']; ?></td>
                             <td>
@@ -808,7 +810,7 @@ $allreq_person = $del_type->rowCount();
                                 </span>
                             </td>
                             <td>
-                                <form action="../DatabaseActions/statusUpdate.php" method="post" class="all_delss" style="display: flex;flex-direction: column;gap: 5px; align-items: center;">
+                                <form action="../DatabaseActions/statusUpdate.php" method="post" class="all_delss" style="display: flex;flex-direction: column;gap: 5px; align-items: center;<?php if($all_del_rows['ar_status'] != "pending" ){echo "display:none;" ;} else {echo "display:block;" ;} ?>" >
                                     <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
                                     <select name="statusss" style="padding:3px 6px ; font-size:12px;">
                                         <option value="pending">Pending</option>
@@ -817,27 +819,31 @@ $allreq_person = $del_type->rowCount();
                                     </select>
                                     <button type="submit" name="submited" class="submitteds" style="background:blue;color:#fff;font-size:12px;border:none;cursor:pointer;padding:2px 5px;border-radius:5px">Update</button>
                                 </form>
+                                <span style="<?php if($all_del_rows['ar_status'] != "pending" ){echo "display:block;" ;} else {echo "display:none;" ;} ?>"> <?php echo $all_del_rows['ar_status']; ?>  </span>
                             </td>
                             <td>
-                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;">
+                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;<?php if($all_del_rows['ar_out_time'] != null ){echo "display:none;" ;} else {echo "display:block;" ;} ?>">
                                     <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
                                     <input type="time" name="intime" style="padding:3px 6px ; font-size:12px;" value="<?php echo $all_del_rows['ar_out_time'] ?? date('H:i'); ?>">
                                     <button type="submit" name="issubmited" class="submitteds" style="background:blue;color:#fff;font-size:12px;border:none;cursor:pointer;padding:2px 5px;border-radius:5px">Update</button>
                                 </form>
+                                <span style="<?php if($all_del_rows['ar_out_time'] != "pending" ){echo "display:block;" ;} else {echo "display:none;" ;} ?>"> <?php echo $all_del_rows['ar_out_time']; ?>  </span>
                             </td>
                             <td>
-                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;">
+                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;<?php if($all_del_rows['ar_in_time'] != null ){echo "display:none;" ;} else {echo "display:block;" ;} ?>">
                                     <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
                                     <input type="time" name="outtime" style="padding:3px 6px ; font-size:12px;" value="<?php echo $all_del_rows['ar_in_time'] ?? date('H:i'); ?>" >
                                     <button type="submit" name="Outsubmited" class="submitteds" style="background:blue;color:#fff;font-size:12px;border:none;cursor:pointer;padding:2px 5px;border-radius:5px">Update</button>
                                 </form>
+                                <span style="<?php if($all_del_rows['ar_in_time'] != "pending" ){echo "display:block;" ;} else {echo "display:none;" ;} ?>"> <?php echo $all_del_rows['ar_in_time']; ?>  </span>
                             </td>
                             <td>
-                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;">
+                                <form action="../DatabaseActions/inOut.php" method="post" style="display: flex;flex-direction: column;gap: 5px; align-items: center;<?php if($all_del_rows['ar_delivery_person'] != null ){echo "display:none;" ;} else {echo "display:block;" ;} ?>">
                                     <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
                                     <input type="text" name="persons" style="padding:3px 6px ; font-size:12px;" value="<?php if($all_del_rows['ar_delivery_person'] != null) {echo $all_del_rows['ar_delivery_person'] ;} ?>" >
                                     <button type="submit" name="perdon" class="submitteds" style="background:blue;color:#fff;font-size:12px;border:none;cursor:pointer;padding:2px 5px;border-radius:5px">Update</button>
                                 </form>
+                                <span style="<?php if($all_del_rows['ar_delivery_person'] != null ){echo "display:block;" ;} else {echo "display:none;" ;}?>"> <?php echo "Mr. ".$all_del_rows['ar_delivery_person']; ?>  </span>
                             </td>
                         </tr>   
                     <?php } ?>
