@@ -788,7 +788,7 @@ $allreq_person = $del_type->rowCount();
                     <tr>
                         <th>DN</th>
                         <th>Customer</th>
-                        <th>Created By</th>
+                        <th>Requested By</th>
                         <th>Created Time</th>
                         <th>Status</th>
                         <th>Update Status</th>
@@ -802,7 +802,7 @@ $allreq_person = $del_type->rowCount();
                         <tr>
                             <td><?php echo $all_del_rows['ar_dn_ref']; ?></td>
                             <td><?php echo $all_del_rows['ar_customer_name']; ?></td>
-                            <td><?php echo $all_del_rows['ar_created_by']; ?></td>
+                            <td><?php echo $all_del_rows['ar_requested_by']; ?></td>
                             <td><?php echo $all_del_rows['ar_created_time']; ?></td>
                             <td>
                                 <span class="status <?php if($all_del_rows['ar_status'] == 'pending'){echo 'pending';} else if($all_del_rows['ar_status'] == 'canceled'){echo 'process';}else if($all_del_rows['ar_status'] == 'delivered'){ echo 'completed';} ?>">
