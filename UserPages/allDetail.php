@@ -114,7 +114,7 @@ $user = $_SESSION["user"];
 </head>
 <body>
 <br><br><br>
-<a href="./UserPage.php" id="" style="background-color: blue;font-size:20px;padding:10px 20px;color:#fff;border-radius: 5px;margin-top:40px;margin-left:20px;" style="text-decoration: none;">Go Back</a>
+<a href="./UserPage.php" id="" style="background-color: blue;font-size:20px;padding:10px 20px;color:#fff;border-radius: 5px;margin-top:40px;margin-left:20px;text-decoration: none;" >Go Back</a>
 <br><br>
 <div class="table-container">
     <input type="text" id="searchInput" placeholder="Search..." style="padding:10px 20px;font-size:18px;margin-bottom: 20px;border-radius: 5px; "><br>
