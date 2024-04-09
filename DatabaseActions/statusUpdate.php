@@ -19,6 +19,7 @@ if(isset($_POST["submited"])){
 
     $_SESSION['status'] = 1;
     $_SESSION['dataStatus'] = false;
+    $_SESSION["Actives"] = 1;
     header("Location: ../UserPages/UserPage.php");
 }
 

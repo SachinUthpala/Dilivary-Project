@@ -295,7 +295,7 @@ $allreq_person = $del_type->rowCount();
 
         <!-- End of Navbar -->
 
-        <main id="dashbord">
+        <main id="dashbord" <?php if($_SESSION['Actives'] != null){ echo 'style="display:none;"'; } ?>>
             <div class="header">
                 <div class="left">
                     <h1>Dashboard</h1>
@@ -778,7 +778,7 @@ $allreq_person = $del_type->rowCount();
 
 
 
-        <main id="all_Users_Delivery"> 
+        <main id="all_Users_Delivery" <?php if($_SESSION['Actives'] != null){ echo 'style="display:block;"'; $_SESSION['Actives'] = null; } ?>> 
     <div class="bottom-data">
         <div class="orders">
             <div class="header">
