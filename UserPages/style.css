@@ -1027,3 +1027,9 @@ body{
     border: 1px solid #aaa;
     border-radius: 5px;
 }
+
+.graphds{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}

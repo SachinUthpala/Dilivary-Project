@@ -175,7 +175,7 @@ $user = $_SESSION["user"];
         var dataTable = document.getElementById("dataTable");
         var pagination = document.querySelector(".pagination");
         var rows = dataTable.tBodies[0].rows;
-        var rowsPerPage = 15;
+        var rowsPerPage = 5;
         var pageCount = Math.ceil(rows.length / rowsPerPage);
 
         function displayRows(page) {

@@ -232,8 +232,7 @@ $allreq_person = $del_type->rowCount();
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
 
     <!--charts-->
-    <script src="path/to/chartjs/dist/chart.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -380,7 +379,7 @@ $allreq_person = $del_type->rowCount();
                 <div class="reminders">
                     <div class="header">
                         <i class='bx bx-note'></i>
-                        <h3>Remiders</h3>
+                        <h3>Reminders</h3>
                         <i class='bx bx-plus' id="show-form"></i>
                     </div>
                     <ul class="task-list">
@@ -819,8 +818,8 @@ $allreq_person = $del_type->rowCount();
                             </td>
                             <td>
                                 <form action="../DatabaseActions/statusUpdate.php" method="post" class="all_delss" style="display: flex;flex-direction: column;gap: 5px; align-items: center;<?php if($all_del_rows['ar_status'] != "pending" ){echo "display:none;" ;} else {echo "display:block;" ;} ?>" >
-                                    <input type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
-                                    <select name="statusss" style="padding:3px 6px ; font-size:12px;">
+                                    <input class="form_data_status" type="hidden" name="id" value="<?php echo $all_del_rows['ar_id']; ?>">
+                                    <select name="statusss"  class="form_data_status" style="padding:3px 6px ; font-size:12px;">
                                         <option value="pending">Pending</option>
                                         <option value="delivered">Delivered</option>
                                         <option value="canceled">Canceled</option>
@@ -883,6 +882,9 @@ $allreq_person = $del_type->rowCount();
         });
     });
 </script>
+
+
+
 
 
         <!--show all dliverys-->
@@ -1044,86 +1046,88 @@ $allreq_person = $del_type->rowCount();
                             <p>Total Delivery Types</p>
                         </span>
                     </li>
-                </ul>
+                    </ul>
+                    <br>
+                    <div class="graphds">
+                        <div style="width: 400px;height: 400px;text-align: center;">
+                            <h1>Delivery Details</h1>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <div style="width: 400px;height: 400px;text-align: center;">
+                            <h1>User Details</h1>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+
+
+                <script>
+                const ctx = document.getElementById("myChart");
+
+                    new Chart(ctx, {
+                        type: "polarArea",
+                        data: {
+                        labels: ["Canceled Orders", "Delivred Orders", "Pending Orders" , "All Orders"],
+                        datasets: [
+                            {
+                            label: "Deliveries",
+                            data: [<?php echo $all_Canceled_deliveries; ?>, <?php echo $all_delivered_deliveries; ?>, <?php echo $all_Pending_deliveries; ?> , <?php echo $all_deliveries; ?>],
+                            backgroundColor: [
+                                "rgb(255, 99, 132)",
+                                "rgb(75, 192, 192)",
+                                "rgb(255, 205, 86)",
+                                'rgb(54, 162, 235)'
+                            ],
+                            },
+                        ],
+                        },
+                        options: {
+                        scales: {
+                            y: {
+                            beginAtZero: true,
+                            },
+                        },
+                        },
+                    });
+
+
+
+
+                    const ctx2 = document.getElementById("myChart2");
+
+                    new Chart(ctx2, {
+                        type: "polarArea",
+                        data: {
+                        labels: ["Web Developers", "Salse Persons", "Admin Users" , "Admin Access Availabal Users" , "Admin Access Not Availabal Users" , "All Users"],
+                        datasets: [
+                            {
+                            label: "Users",
+                            data: [11, 16, 7 , 14 , 12 , 34],
+                            backgroundColor: [
+                                "rgb(255, 99, 132)",
+                                "rgb(75, 192, 192)",
+                                "rgb(255, 205, 86)",
+                                "rgb(113, 57, 176)",
+                                "rgb(70, 26, 180)",
+                                'rgb(54, 162, 235)'
+                            ],
+                            },
+                        ],
+                        },
+                        options: {
+                        scales: {
+                            y: {
+                            beginAtZero: true,
+                            },
+                        },
+                        },
+                    });
+                </script>
 
                 
 
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-
-        <script>
-            var options = {
-          series: [<?php echo $all_Pending_deliveries; ?> , <?php echo $all_Canceled_deliveries; ?> , <?php echo $all_deliveries2; ?>],
-          chart: {
-          width: 380,
-          type: 'donut',
-        },
-        dataLabels: {
-          enabled: false
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              show: false
-            }
-          }
-        }],
-        legend: {
-          position: 'right',
-          offsetY: 0,
-          height: 230,
-        }
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-      
-      
-        function appendData() {
-        var arr = chart.w.globals.series.slice()
-        arr.push(Math.floor(Math.random() * (100 - 1 + 1)) + 1)
-        return arr;
-      }
-      
-      function removeData() {
-        var arr = chart.w.globals.series.slice()
-        arr.pop()
-        return arr;
-      }
-      
-      function randomize() {
-        return chart.w.globals.series.map(function() {
-            return Math.floor(Math.random() * (100 - 1 + 1)) + 1
-        })
-      }
-      
-      function reset() {
-        return options.series
-      }
-      
-      document.querySelector("#randomize").addEventListener("click", function() {
-        chart.updateSeries(randomize())
-      })
-      
-      document.querySelector("#add").addEventListener("click", function() {
-        chart.updateSeries(appendData())
-      })
-      
-      document.querySelector("#remove").addEventListener("click", function() {
-        chart.updateSeries(removeData())
-      })
-      
-      document.querySelector("#reset").addEventListener("click", function() {
-        chart.updateSeries(reset())
-      })
-      
-        </script>
 
 
         <!--all pending deliverys-->
@@ -1493,9 +1497,10 @@ $allreq_person = $del_type->rowCount();
                   </script>
                 '
                 ;
-
+                
                 $_SESSION['time'] == null;
-                $_SESSION['dataTime'] = true; // Set the flag to true
+                $_SESSION['dataTime'] = true;
+                 // Set the flag to true
 
             }else if($_SESSION['remind_delete'] ==1  && !$RemindDelete) {
                 echo '
@@ -1792,6 +1797,7 @@ $allreq_person = $del_type->rowCount();
         }
     </script>
     <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
