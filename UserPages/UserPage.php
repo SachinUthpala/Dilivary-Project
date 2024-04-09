@@ -210,6 +210,37 @@ $del_type->execute();
 $allreq_person = $del_type->rowCount();
 
 
+//webdevelopers
+$web_use_sql = 'SELECT * FROM `Users` WHERE u_email like "%WebDeveloper%" OR "%webdeveloper%";';
+$web_use_sql_type = $conn -> prepare($web_use_sql);
+$web_use_sql_type->execute();
+$webdevelopercount = $web_use_sql_type->rowCount();
+
+
+//accounting
+$acc_use_sql = 'SELECT * FROM `Users` WHERE u_email like "%accounting%" OR "%Accounting%";';
+$acc_use_sql_type = $conn -> prepare($acc_use_sql);
+$acc_use_sql_type->execute();
+$accdevelopercount = $acc_use_sql_type->rowCount();
+
+
+//admins
+
+$Admin_use_sql = 'SELECT * FROM `Users` WHERE u_email like "%accounting%" OR "%Accounting%";';
+$Admin_use_sql_type = $conn -> prepare($Admin_use_sql);
+$Admin_use_sql_type->execute();
+$Admindevelopercount = $Admin_use_sql_type->rowCount();
+
+//salseperson
+
+$SalsePerson_use_sql = 'SELECT * FROM `Users` WHERE u_email like "%accounting%" OR "%Accounting%";';
+$SalsePerson_use_sql_type = $conn -> prepare($SalsePerson_use_sql);
+$SalsePerson_use_sql_type->execute();
+$SalsePersondevelopercount = $SalsePerson_use_sql_type->rowCount();
+
+//adminacc
+$Admin_Acc_Avalable = $accdevelopercount + $webdevelopercount + $Admindevelopercount;
+$Admin_Acc_not = $SalsePersondevelopercount;
 //=======================================================================//
 
 
@@ -286,10 +317,10 @@ $allreq_person = $del_type->rowCount();
             <span style="color: #1976D2; font-size:15px; padding-left: 10px;font-weight:700;">Dark / Light Mode : </span>
             <input type="checkbox" id="theme-toggle" hidden>
             <label for="theme-toggle" class="theme-toggle"></label>
-            <a href="#" class="notif">
+            <!-- <a href="#" class="notif">
                 <i class='bx bx-bell'></i>
                 <span class="count">12</span>
-            </a>
+            </a> -->
             
         </nav>
 
@@ -1007,7 +1038,7 @@ $allreq_person = $del_type->rowCount();
                             <p>Total Created Delivery Arrangements</p>
                         </span>
                     </li>
-                    <li style="background: rgba(172, 255, 47, 0.199);"><i class='bx bx-line-chart'></i>
+                    <li ><i class='bx bx-line-chart'></i>
                         <span class="info">
                             <h3>
                                 <?php echo $all_delivered_deliveries; ?>
@@ -1015,7 +1046,7 @@ $allreq_person = $del_type->rowCount();
                             <p>Total Delivered Delivery Arrangements</p>
                         </span>
                     </li>  
-                        <li style="background:rgba(255, 255, 0, 0.226)">
+                        <li >
                         <i class='bx bx-calendar-check'></i>
                         <span class="info">
                             <h3>
@@ -1024,7 +1055,7 @@ $allreq_person = $del_type->rowCount();
                             <p>Total Pending Delivery Arrangements</p>
                         </span>
                     </li>
-                    <li style="background:#d32f2f38;"><i class='bx bx-show-alt'></i>
+                    <li ><i class='bx bx-show-alt'></i>
                         <span class="info">
                             <h3>
                                 <?php echo $all_Canceled_deliveries; ?>
@@ -1101,16 +1132,17 @@ $allreq_person = $del_type->rowCount();
                     new Chart(ctx2, {
                         type: "polarArea",
                         data: {
-                        labels: ["Web Developers", "Salse Persons", "Admin Users" , "Admin Access Availabal Users" , "Admin Access Not Availabal Users" , "All Users"],
+                        labels: ["Web Developers", "Salse Persons", "Admin Users" ,"Accounting Users", "Admin Access Availabal Users" , "Admin Access Not Availabal Users" , "All Users"],
                         datasets: [
                             {
                             label: "Users",
-                            data: [11, 16, 7 , 14 , 12 , 34],
+                            data: [<?php echo $webdevelopercount; ?>, <?php echo $SalsePersondevelopercount; ?>, <?php echo $Admindevelopercount; ?>,<?php echo $accdevelopercount; ?> , <?php echo $Admin_Acc_Avalable; ?> ,  <?php echo $Admin_Acc_not ?> , <?php echo $all_users; ?>],
                             backgroundColor: [
                                 "rgb(255, 99, 132)",
                                 "rgb(75, 192, 192)",
                                 "rgb(255, 205, 86)",
                                 "rgb(113, 57, 176)",
+                                "rgb(183, 67, 176)",
                                 "rgb(70, 26, 180)",
                                 'rgb(54, 162, 235)'
                             ],
