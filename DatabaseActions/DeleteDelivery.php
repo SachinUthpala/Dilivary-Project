@@ -18,6 +18,7 @@ if (isset($_POST['ddelete'])) {
         echo "Data inserted successfully.";
             $_SESSION['Delete_deliery'] = 1;
             $_SESSION['Deletedeliery'] = false;
+            $_SESSION["Actives"] = 1;
             header("Location: ../UserPages/UserPage.php");
     
 }

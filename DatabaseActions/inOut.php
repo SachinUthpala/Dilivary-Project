@@ -16,6 +16,7 @@ if (isset($_POST["issubmited"])) {
     $status_smtp->execute();
 
     $_SESSION['time'] = 1;
+    $_SESSION["Actives"] = 1;
     $_SESSION['dataTime'] = false;
     header("Location: ../UserPages/UserPage.php");
 } elseif (isset($_POST["Outsubmited"])) {
@@ -31,6 +32,7 @@ if (isset($_POST["issubmited"])) {
 
     $_SESSION['time'] = 1;
     $_SESSION['dataTime'] = false;
+    $_SESSION["Actives"] = 1;
     header("Location: ../UserPages/UserPage.php");
 }elseif (isset($_POST["perdon"])) {
     $id = $_POST["id"];
@@ -45,6 +47,7 @@ if (isset($_POST["issubmited"])) {
 
     $_SESSION['time'] = 1;
     $_SESSION['dataTime'] = false;
+    $_SESSION["Actives"] = 1;
     header("Location: ../UserPages/UserPage.php");
 }
 ?>

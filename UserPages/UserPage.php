@@ -380,13 +380,17 @@ $allreq_person = $del_type->rowCount();
                     <div class="header">
                         <i class='bx bx-note'></i>
                         <h3>Reminders</h3>
+                        <span style="display: flex; gap: 20px;">
+                            <span style="display: flex; gap: 20px;"><i class='bx bx-badge-check' style='color:#388E3C'></i><p>Not Important</p></span>
+                            <span style="display: flex; gap: 20px;"><i class='bx bxs-badge-check' style='color:#D32F2F;'></i><p>Important</p></span>
+                        </span>
                         <i class='bx bx-plus' id="show-form"></i>
                     </div>
                     <ul class="task-list">
                         <?php while($reminder_row = $reminder_smtp->fetch(PDO::FETCH_ASSOC)) {?>
                         <li class="<?php if($reminder_row['r_important'] == "Important") {echo "not-completed";} else { echo "completed";} ?>">
                             <div class="task-title">
-                                <?php if($reminder_row['r_important'] == "Important") {echo "<i class='bx bxs-badge-check'></i>";} else { echo "<i class='bx bx-badge-check'></i>";} ?>
+                                <?php if($reminder_row['r_important'] == "Important") {echo "<i class='bx bxs-badge-check' style='color:#D32F2F;'></i>";} else { echo "<i class='bx bx-badge-check' style='color:#388E3C'></i>";} ?>
                                 <p><?php echo $reminder_row['r_data'];  ?></p>
                             </div>
                             <form action="../DatabaseActions/DeleteRemind.php" method="post">
