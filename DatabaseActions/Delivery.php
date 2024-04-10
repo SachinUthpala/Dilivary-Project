@@ -20,6 +20,7 @@ if(isset($_POST["submit"])) {
         $ar_created_date = date("Y-m-d");
         $ar_created_time = date('H:i:s');
         $exp_date = $_POST['exp_date'];
+        $remark = $_POST['delivery_remark'];
 
         echo $ar_created_time;
 
@@ -28,10 +29,10 @@ if(isset($_POST["submit"])) {
         // Prepare the SQL query using prepared statements with named placeholders
         $sql = "INSERT INTO `Delivery_arraange`(`ar_date`, `ar_dn_ref`, `ar_customer_name`, `ar_delivery_address`, `ar_contaced_person`, 
                 `ar_requested_by`, `ar_vehicle_type`, `ar_type_of_delivery`, `ar_urgancy`, `ar_delivery_person`, `ar_contact_number`, `ar_created_by`, 
-                `ar_created_date` , `ar_created_time` , `exp_del_date`) 
+                `ar_created_date` , `ar_created_time` , `exp_del_date` , `ar_remark`) 
                 VALUES (:ar_date, :ar_dn_ref, :ar_customer_name, :ar_delivery_address, :ar_contaced_person, 
                 :ar_requested_by, :ar_vehicle_type, :ar_type_of_delivery, :ar_urgancy, :ar_delivery_person, :ar_contact_number, :ar_created_by, 
-                :ar_created_date , :ar_created_time , :exp_date)";
+                :ar_created_date , :ar_created_time , :exp_date , :ar_remark)";
 
         $stmt = $conn->prepare($sql);
 
@@ -51,6 +52,7 @@ if(isset($_POST["submit"])) {
         $stmt->bindParam(":ar_created_date", $ar_created_date);
         $stmt->bindParam(":ar_created_time", $ar_created_time);
         $stmt->bindParam(":exp_date", $exp_date);
+        $stmt->bindParam(":ar_remark", $remark);
 
         // Execute the statement
         $stmt->execute();

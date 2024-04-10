@@ -561,6 +561,10 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                                     <label>Expected delivery date</label>
                                     <input type="date" value="<?php echo $ar_created_date ; ?>" name="exp_date" id="#" >
                                 </div>
+                                <div class="input-feilds">
+                                    <label>Add Remark </label>
+                                    <input type="text" name="delivery_remark" id="#" disabled>
+                                </div>
                             </div>
 
                             <div class="btns">
