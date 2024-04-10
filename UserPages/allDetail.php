@@ -127,7 +127,7 @@ $user = $_SESSION["user"];
             <th>CONTACT PERSON</th>
             <th>CONTACT NUMBER</th>
             <th>REQUESTED BY</th>
-            <th>CREATED BY</th>
+            <th>REMARK</th>
             <th>CREATED DATE</th>
             <th>CREATED TIME</th>
             <th>DELIVERY PERSON</th>
@@ -148,7 +148,7 @@ $user = $_SESSION["user"];
             <td><?php echo $all_deliveries2_row['ar_contaced_person']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_contact_number']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_requested_by']; ?></td>
-            <td><?php echo $all_deliveries2_row['ar_created_by']; ?></td>
+            <td><?php echo $all_deliveries2_row['ar_remark']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_created_date']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_created_time']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_delivery_person']; ?></td>

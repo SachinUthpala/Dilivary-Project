@@ -135,6 +135,7 @@ $allDeliv_smtp->execute();
             <th>DELIVERY TYPE</th>
             <th>VEHICLE</th>
             <th>EXPECTED DELIVERY DATE</th>
+            <th>REMARK</th>
             <th>OUT TIME</th>
             <th>IN TIME</th>
             <th>STATUS</th>
@@ -156,6 +157,7 @@ $allDeliv_smtp->execute();
             <td><?php echo $all_deliveries2_row['ar_type_of_delivery']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_vehicle_type']; ?></td>
             <td><?php echo $all_deliveries2_row['exp_del_date']; ?></td>
+            <td><?php echo $all_deliveries2_row['ar_remark']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_out_time']; ?></td>
             <td><?php echo $all_deliveries2_row['ar_in_time']; ?></td>
             <td>

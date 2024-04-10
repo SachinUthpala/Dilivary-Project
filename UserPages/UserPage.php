@@ -558,12 +558,12 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                                     </select>
                                 </div>
                                 <div class="input-feilds">
-                                    <label>Expected delivery date</label>
-                                    <input type="date" value="<?php echo $ar_created_date ; ?>" name="exp_date" id="#" >
+                                    <label>Add Remark </label>
+                                    <input type="text" name="delivery_remark" id="#" width="200px">
                                 </div>
                                 <div class="input-feilds">
-                                    <label>Add Remark </label>
-                                    <input type="text" name="delivery_remark" id="#" disabled>
+                                    <label>Expected delivery date</label>
+                                    <input type="date" value="<?php echo $ar_created_date ; ?>" name="exp_date" id="#" >
                                 </div>
                             </div>
 
@@ -601,8 +601,8 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <th>Address</th>
                     <th>Created Time</th>
                     <th>Expected Delivery Date</th>
-                    <th>Out Time</th>
                     <th>Delivery Person</th>
+                    <th>Remark</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -615,8 +615,8 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <td><?php echo $all_rows['ar_delivery_address']; ?></td>
                     <td><?php echo $all_rows['ar_created_time']; ?></td>
                     <td><?php echo $all_rows['exp_del_date']; ?></td>
-                    <td><?php echo $all_rows['ar_out_time']; ?></td>
                     <td><?php echo $all_rows['ar_delivery_person']; ?></td>
+                    <td><?php echo $all_rows['ar_remark']; ?></td>
                     <td><span class="status <?php if($all_rows['ar_status'] == 'pending'){echo 'pending';} else if($all_rows['ar_status'] == 'canceled'){echo 'process';}else if($all_rows['ar_status'] == 'delivered'){ echo 'completed';} ?>"><?php echo $all_rows['ar_status']; ?></span></td>
                 </tr>
                 <?php } ?>
