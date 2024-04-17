@@ -45,7 +45,7 @@ if(isset($_SESSION['loginSuccessDisplayed']) && $_SESSION['loginSuccessDisplayed
     $loginSuccessDisplayed = false;
 }
 
-if(isset($_SESSION['dataInserted']) && $_SESSION['dataInserted'] == true) {
+if(isset($_SESSION['dataInserted']) && $_SESSION['dataInserted'] == true) {  
     $dataInserted = true;
 } else {
     $dataInserted = false;
@@ -326,7 +326,7 @@ $Admin_Acc_not = $SalsePersondevelopercount;
 
         <!-- End of Navbar -->
 
-        <main id="dashbord" <?php if($_SESSION['Actives'] != null){ echo 'style="display:none;"'; } ?>>
+        <main id="dashbord" <?php if($_SESSION['Actives'] != null){ echo 'style="display:none;"'; } ?> <?php if($_SESSION['update_delivery_page_visited'] != null){ echo 'style="display:none;"';} ?>>
             <div class="header">
                 <div class="left">
                     <h1>Dashboard</h1>
@@ -581,7 +581,7 @@ $Admin_Acc_not = $SalsePersondevelopercount;
         
 
         <!--for user all deliverys -->
-        <main id="allDelivery"> 
+        <main id="allDelivery" <?php if($_SESSION['update_delivery_page_visited'] != null){ echo 'style="display:block;"'; $_SESSION['update_delivery_page_visited'] = null; } ?>> 
                 
             <div class="bottom-data">
     <div class="orders">
@@ -602,8 +602,8 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <th>Created Time</th>
                     <th>Expected Delivery Date</th>
                     <th>Delivery Person</th>
-                    <th>Remark</th>
                     <th>Status</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -616,14 +616,18 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <td><?php echo $all_rows['ar_created_time']; ?></td>
                     <td><?php echo $all_rows['exp_del_date']; ?></td>
                     <td><?php echo $all_rows['ar_delivery_person']; ?></td>
-                    <td><?php echo $all_rows['ar_remark']; ?></td>
                     <td><span class="status <?php if($all_rows['ar_status'] == 'pending'){echo 'pending';} else if($all_rows['ar_status'] == 'canceled'){echo 'process';}else if($all_rows['ar_status'] == 'delivered'){ echo 'completed';} ?>"><?php echo $all_rows['ar_status']; ?></span></td>
+                    <td><?php if($all_rows['ar_status'] == 'pending') { ?>  <form action="./UpdateDelivery.php" method="post"><input type="hidden" name="deliveryId" value="<?php echo $all_rows['ar_id']; ?>"><button type="Submit" style="
+                    background-color: #000000 ;color: #fff ;padding: 3px 6px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo 'Can not Update'; } ?></td>
                 </tr>
+                <?php if($all_rows['ar_remark'] != null || $all_rows['ar_remark'] != ' '){echo '<td style="border-bottom:1px solid #D32F2F;"><span style="font-weight: bold;">Remark : </span>'?><?php echo $all_rows["ar_remark"]; ?></td><?php } else {echo '<td style="border-bottom:1px solid #D32F2F;display:none;"><span style="font-weight: bold;">Remark : </span>';}?>
                 <?php } ?>
             </tbody>
         </table>
     </div>
 </div>
+
+  
 
 <script>
     // Get the input field and table
@@ -1392,47 +1396,6 @@ $Admin_Acc_not = $SalsePersondevelopercount;
             </div>
         </main>
 
-            <!--add notification form-->
-           <div class="popup-form2" style="position: absolute; margin-top: 50px; z-index: 1000;">
-                    <div class="close-btn" id="close-form2">&times;</div>
-                    <div class="form">
-                        <h2>Create Notification</h2>
-                        <form action="../DatabaseActions/Reminder.php" method="post">
-                            <input type="hidden" name="n_created_user" value="<?php echo $_SESSION['user']; ?>">
-                            <div class="form-element">
-                                <label for="notification">Expected Date</label>
-                                <input type="date" name="n_created_date" value="<?php echo date("Y-m-d"); ?>">
-                            </div>
-                            <div class="form-element">
-                                <label for="notification">Your Notification</label>
-                                <input type="text" name="notification" id="notification">
-                            </div>
-                            <div class="form-element">
-                                <label for="notification_important">Importance</label>
-                                <select name="notification_important" id="#">
-                                    <option name="#" value="Important" id="#">Important</option>
-                                    <option name="#" value="Not_Important" id="#">Not Important</option>
-                                </select>
-                            </div>
-                            <div class="form-element">
-                                <button type="submit" name="notification_submit">Add Reminder</button>
-                            </div>
-                        </form>
-                    </div>
-            </div> 
-
-
-                <!--script for form-->
-
-                <script>
-                    document.querySelector("#show-form2").addEventListener("click" , function(){
-                        document.querySelector(".popup-form2").classList.add("active")
-                    });
-
-                    document.querySelector("#close-form2").addEventListener("click" , function(){
-                        document.querySelector(".popup-form2").classList.remove("active")
-                    });
-                </script>
 
 
 
