@@ -618,9 +618,9 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <td><?php echo $all_rows['ar_delivery_person']; ?></td>
                     <td><span class="status <?php if($all_rows['ar_status'] == 'pending'){echo 'pending';} else if($all_rows['ar_status'] == 'canceled'){echo 'process';}else if($all_rows['ar_status'] == 'delivered'){ echo 'completed';} ?>"><?php echo $all_rows['ar_status']; ?></span></td>
                     <td><?php if($all_rows['ar_status'] == 'pending') { ?>  <form action="./UpdateDelivery.php" method="post"><input type="hidden" name="deliveryId" value="<?php echo $all_rows['ar_id']; ?>"><button type="Submit" style="
-                    background-color: #000000 ;color: #fff ;padding: 3px 6px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo 'Can not Update'; } ?></td>
+                    background-color: green ;color: #fff ;padding: 5px 10px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo 'Can not Update'; } ?></td>
                 </tr>
-                <?php if($all_rows['ar_remark'] != null || $all_rows['ar_remark'] != ' '){echo '<td style="border-bottom:1px solid #D32F2F;"><span style="font-weight: bold;">Remark : </span>'?><?php echo $all_rows["ar_remark"]; ?></td><?php } else {echo '<td style="border-bottom:1px solid #D32F2F;display:none;"><span style="font-weight: bold;">Remark : </span>';}?>
+                <?php if($all_rows['ar_remark'] != null || $all_rows['ar_remark'] != ' '){echo '<td style="border-bottom:1px solid #D32F2F;"><span style="font-weight: bold;">Remark : </span>'?><?php echo $all_rows["ar_remark"]; ?></td><?php } else {echo '<td style="border-bottom:1px solid #000000;display:none;"><span style="font-weight: bold;">Remark : </span>';}?>
                 <?php } ?>
             </tbody>
         </table>

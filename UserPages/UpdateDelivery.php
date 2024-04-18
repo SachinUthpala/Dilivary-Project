@@ -8,10 +8,10 @@ if (!isset($_SESSION['user'])){
     exit; // Exit to prevent further execution
 }
 
-$id = $_POST['deliveryId'];
+$ids = $_POST['deliveryId'];
 $resent_sql = "SELECT * FROM Delivery_arraange WHERE ar_id = :ids";
 $resent_smtp = $conn -> prepare($resent_sql);
-$resent_smtp->bindParam(":ids", $id);
+$resent_smtp->bindParam(":ids", $ids);
 $resent_smtp->execute();
 
 $delivery = $resent_smtp->fetch(PDO::FETCH_ASSOC);
@@ -192,6 +192,11 @@ $_SESSION['update_delivery_page_visited'] = 1;
                             <br><br>
                             <div class="feilds">
                                 <div class="input-feilds">
+                                <label>Delivery Id</label>
+                                    <input type="hidden" value="<?php echo $ids ; ?>" name="delivryId" id="#" >
+                                    <input type="text" value="<?php echo $ids ; ?>"  id="#" disabled >
+                                </div>
+                                <div class="input-feilds">
                                     <label>Date</label>
                                     <input type="date" value="<?php echo $delivery['ar_created_date'] ; ?>" name="date" id="#" disabled>
                                 </div>
@@ -269,12 +274,12 @@ $_SESSION['update_delivery_page_visited'] = 1;
                                 </div>
                                 <div class="input-feilds">
                                     <label>Expected delivery date</label>
-                                    <input type="date" value="<?php echo $ar_created_date ; ?>" name="exp_date" id="#" value="<?php echo $delivery['exp_del_date']?>" >
+                                    <input type="date" value="<?php echo $delivery['ar_created_date'] ; ?>" name="exp_date" id="#" value="<?php echo $delivery['exp_del_date']?>" >
                                 </div>
                             </div>
 
                             <div class="btns">
-                                <button type="submit" name="submit" class="nxtBtn submits">
+                                <button type="submit" name="submit_update" class="nxtBtn submits">
                                     <span class="btnText" ></span>Update Delivery</span>
                                 </button>
 

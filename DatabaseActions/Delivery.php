@@ -3,6 +3,7 @@ session_start();
 require_once("./Connection.php");
 date_default_timezone_set('Asia/Colombo');
 
+
 if(isset($_POST["submit"])) {
     try {
         $date = $_POST['date'];
@@ -76,6 +77,7 @@ if(isset($_POST["submit"])) {
 }
 
 
+
 if(isset($_POST['delivery_type'])){
     try {
         
@@ -112,3 +114,52 @@ if(isset($_POST['delivery_type'])){
     }
 }
 
+
+
+if(isset($_POST["submit_update"])){
+       
+        $dn = $_POST['dn'];
+        $customer_name = $_POST['customer_name'];
+        $delivery_address = $_POST['delivery_address'];
+        $contact_person = $_POST['contaced_peson']; // Fixed typo
+        $contact_number = $_POST['contact_number']; // Fixed variable name
+        $requested_by = $_POST['requested_by'];
+        $vehicle_type = $_POST['vehicle_type'];
+        $type_of_delivery = $_POST['type_of_delivery'];
+        $urgency = $_POST['uragncy']; // Fixed variable name
+        $exp_date = $_POST['exp_date'];
+        $remark = $_POST['delivery_remark'];
+        $id_devlivery = $_POST['delivryId'];
+
+        echo $id_devlivery;
+         
+
+        $up_sql = "UPDATE `Delivery_arraange` SET `ar_dn_ref`=:dn,`ar_customer_name`=:ar_customer_name,`ar_delivery_address`=:ar_delivery_address,
+        `ar_contaced_person`=:ar_contaced_person,`ar_requested_by`= :ar_requested_by,`ar_vehicle_type`=:ar_vehicle_type,`ar_type_of_delivery`=:ar_type_of_delivery,
+        `ar_urgancy`=:ar_urgancy,`ar_contact_number`=:ar_contact_number,`exp_del_date`=:exp_del_date,`ar_remark`=:ar_remark WHERE ar_id = :id";
+
+        $stmt_update = $conn->prepare($up_sql);
+
+        $stmt_update->bindParam(":dn" , $dn);
+        $stmt_update->bindParam(":ar_customer_name" , $customer_name);
+        $stmt_update->bindParam(":ar_delivery_address" , $delivery_address);
+        $stmt_update->bindParam(":ar_contaced_person" , $contact_person);
+        $stmt_update->bindParam(":ar_requested_by" , $requested_by);
+        $stmt_update->bindParam(":ar_vehicle_type" , $vehicle_type);
+        $stmt_update->bindParam(":ar_type_of_delivery" , $type_of_delivery);
+        $stmt_update->bindParam(":ar_urgancy" , $urgency);
+        $stmt_update->bindParam(":ar_contact_number" , $contact_number);
+        $stmt_update->bindParam(":exp_del_date" , $exp_date);
+        $stmt_update->bindParam(":ar_remark" , $remark);
+        $stmt_update->bindParam(":id" , $id_devlivery);
+
+        try {
+            $stmt_update->execute();
+            $_SESSION['status'] ==1;
+            $_SESSION['dataInserted'] == true;
+            $_SESSION['update_delivery_page_visited'] = 1;
+            header("Location: ../UserPages/UserPage.php");
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+}
