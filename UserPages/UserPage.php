@@ -618,9 +618,9 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                     <td><?php echo $all_rows['ar_delivery_person']; ?></td>
                     <td><span class="status <?php if($all_rows['ar_status'] == 'pending'){echo 'pending';} else if($all_rows['ar_status'] == 'canceled'){echo 'process';}else if($all_rows['ar_status'] == 'delivered'){ echo 'completed';} ?>"><?php echo $all_rows['ar_status']; ?></span></td>
                     <td><?php if($all_rows['ar_status'] == 'pending') { ?>  <form action="./UpdateDelivery.php" method="post"><input type="hidden" name="deliveryId" value="<?php echo $all_rows['ar_id']; ?>"><button type="Submit" style="
-                    background-color: green ;color: #fff ;padding: 5px 10px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo 'Can not Update'; } ?></td>
+                    background-color: green ;color: #fff ;padding: 5px 10px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo '<span style="color:#fff; padding : 3px 7px;background:red;border-radius:30px;font-size:small;">Disabled</span>'; } ?></td>
                 </tr>
-                <?php if($all_rows['ar_remark'] != null || $all_rows['ar_remark'] != ' '){echo '<td style="border-bottom:1px solid #D32F2F;"><span style="font-weight: bold;">Remark : </span>'?><?php echo $all_rows["ar_remark"]; ?></td><?php } else {echo '<td style="border-bottom:1px solid #000000;display:none;"><span style="font-weight: bold;">Remark : </span>';}?>
+                <?php if($all_rows['ar_remark'] != null || $all_rows['ar_remark'] != ' '){echo '<td style="background:rgba(0, 0, 0, 0.18);"><span style="font-weight: bold;">Remark : </span>'?><?php echo $all_rows["ar_remark"]; ?></td><?php } else {echo '<td style="border-bottom:1px solid #000000;display:none;"><span style="font-weight: bold;">Remark : </span>';}?>
                 <?php } ?>
             </tbody>
         </table>
@@ -901,6 +901,8 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                                     <button type="submit" name="ddelete" class="submitteds" style="background:#D32F2F;color:#fff;font-size:14px;border:none;cursor:pointer;padding:4px 10px;border-radius:5px">Delete</button>
                                 </form>
                             </td>
+                            <td><?php if($all_del_rows['ar_status'] == 'pending') { ?>  <form action="./UpdateDelivery.php" method="post"><input type="hidden" name="deliveryId" value="<?php echo $all_del_rows['ar_id']; ?>"><button type="Submit" style="
+                    background-color: green ;color: #fff ;padding: 5px 10px;border-radius: 5px;cursor: pointer;border: none;">Update</button></form>  <?php ;} else { echo '<span style="color:#fff; padding : 3px 7px;background:red;border-radius:30px;font-size:small;">Disabled</span>'; } ?></td>
                         </tr>   
                     <?php } ?>
                 </tbody>
