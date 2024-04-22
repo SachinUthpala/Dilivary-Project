@@ -499,7 +499,7 @@ $Admin_Acc_not = $SalsePersondevelopercount;
                                 </div>
                                 <div class="input-feilds">
                                     <label>DN Refference</label>
-                                    <input type="text" name="dn" id="#" required>
+                                    <input type="text" name="dn" id="#" >
                                 </div>
                                 <div class="input-feilds">
                                     <label>Customer Name</label>
