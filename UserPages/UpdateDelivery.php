@@ -206,7 +206,7 @@ $_SESSION['update_delivery_page_visited'] = 1;
                                 </div>
                                 <div class="input-feilds">
                                     <label>DN Refference</label>
-                                    <input type="text" name="dn" id="#" required value="<?php echo $delivery['ar_dn_ref']?>">
+                                    <input type="text" name="dn" id="#"  value="<?php echo $delivery['ar_dn_ref']?>">
                                 </div>
                                 <div class="input-feilds">
                                     <label>Customer Name</label>
